@@ -1,0 +1,21 @@
+﻿@model CalculatorModel
+@{
+    ViewData["Title"] = "String Calculator";
+}
+
+<p>This calculator can take up to two numbers, separated by commas, and will return their sum.</p>
+<p>For an empty string it will return 0</p>
+<p>It accepts newline characters in place of a comma, as a delimiter. For example “1\n2,3” returns 6. However "1,\n2” is invalid.</p>
+<p>You can also specify your own delimiters by beginning the input with //</p>
+<p>//*\n1*2 will return 3</p>
+<p>//*%\n1*2%3 will return 6</p>
+
+
+<form>
+    <input id="StringCalculatorInput" type="text" alt="String Calculator Expression" asp-for="@Model.Input" />
+    <button id="Compute" class="green button" type="submit" asp-action="Index">Compute Server Side</button>
+</form>
+
+<div>Server-Side Result:@Model.Number</div>
+<div>@Model.Error</div>
+<div id="clientSideResult"></div>
